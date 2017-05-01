@@ -8,6 +8,45 @@ describe('HelloService', () => {
     const service = new HelloService();
     const component = new HelloComponent(service);
 
-    expect(component.getWelcomeMessage()).toBe("Hello!");
+    expect(component.getWelcomeMessage()).toBe('Hello!');
+  });
+});
+
+describe('A spy', function() {
+  let foo: any = null
+  let bar: any = null;
+
+  beforeEach(function() {
+    foo = {
+      setBar: (value: number) => {
+        bar = value;
+      },
+      getBar: () => {
+        return 50;
+      }
+    };
+
+    spyOn(foo, 'setBar');
+    spyOn(foo, 'getBar').and.returnValue(100);
+
+    foo.setBar(123);
+    foo.setBar(456, 'another param');
+  });
+
+  it('returns set value', function() {
+    expect(foo.getBar()).toEqual(100);
+  });
+
+  it('tracks that the spy was called', function() {
+    expect(foo.setBar).toHaveBeenCalled();
+  });
+
+  it('tracks all the arguments of its calls', function() {
+    expect(foo.setBar).toHaveBeenCalledWith(123);
+    expect(foo.setBar).toHaveBeenCalledWith(456, 'another param');
+  });
+
+  it('stops all execution on a function', function() {
+    expect(bar).toBeNull();
   });
 });

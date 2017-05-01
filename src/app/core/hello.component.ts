@@ -7,10 +7,10 @@ import { HelloService } from './hello.service';
 
 export class HelloComponent {
   static $inject = [HelloService];
-  constructor(private helloService : HelloService) {
+  constructor(private helloService: HelloService) {
 
   }
-  public getWelcomeMessage() : String {
+  public getWelcomeMessage(): String {
     return this.helloService.getWelcomeMessage();
   }
 };
