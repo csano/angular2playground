@@ -2,6 +2,6 @@
 
 export class HelloService {
   public getWelcomeMessage(): String {
-    return 'Hello!';
+    return 'Hello, World!';
   }
 }

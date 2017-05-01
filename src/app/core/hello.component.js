@@ -19,10 +19,12 @@ var HelloComponent = (function () {
     };
     return HelloComponent;
 }());
-HelloComponent.$inject = [hello_service_1.HelloService];
+HelloComponent.$inject = ['HelloService'];
 HelloComponent = __decorate([
     core_1.Component({
-        providers: [hello_service_1.HelloService]
+        selector: 'hello',
+        providers: [hello_service_1.HelloService],
+        template: "<h1>{{getWelcomeMessage()}}</h1>"
     }),
     __metadata("design:paramtypes", [hello_service_1.HelloService])
 ], HelloComponent);

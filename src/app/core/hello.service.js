@@ -4,7 +4,7 @@ var HelloService = (function () {
     function HelloService() {
     }
     HelloService.prototype.getWelcomeMessage = function () {
-        return 'Hello!';
+        return 'Hello, World!';
     };
     return HelloService;
 }());
