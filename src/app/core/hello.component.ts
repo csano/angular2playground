@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Http } from '@angular/http';
 import { HelloService } from './hello.service';
 
 @Component({
@@ -8,8 +9,8 @@ import { HelloService } from './hello.service';
 })
 
 export class HelloComponent {
-  static $inject = ['HelloService'];
-  constructor(private helloService: HelloService) {
+  //static $inject = ['HelloService'];
+  constructor(private helloService: HelloService, private http: Http) {
 
   }
   public getWelcomeMessage(): String {

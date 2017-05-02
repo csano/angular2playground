@@ -9,24 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var http_1 = require("@angular/http");
 var hello_service_1 = require("./hello.service");
 var HelloComponent = (function () {
-    function HelloComponent(helloService) {
+    //static $inject = ['HelloService'];
+    function HelloComponent(helloService, http) {
         this.helloService = helloService;
+        this.http = http;
     }
     HelloComponent.prototype.getWelcomeMessage = function () {
         return this.helloService.getWelcomeMessage();
     };
     return HelloComponent;
 }());
-HelloComponent.$inject = ['HelloService'];
 HelloComponent = __decorate([
     core_1.Component({
         selector: 'hello',
         providers: [hello_service_1.HelloService],
         template: "<h1>{{getWelcomeMessage()}}</h1>"
     }),
-    __metadata("design:paramtypes", [hello_service_1.HelloService])
+    __metadata("design:paramtypes", [hello_service_1.HelloService, http_1.Http])
 ], HelloComponent);
 exports.HelloComponent = HelloComponent;
 ;
