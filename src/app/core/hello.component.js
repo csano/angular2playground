@@ -10,23 +10,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var hello_service_1 = require("./hello.service");
+var foo_service_1 = require("./foo.service");
 var HelloComponent = (function () {
-    function HelloComponent(helloService) {
-        this.helloService = helloService;
+    function HelloComponent(foo) {
     }
     HelloComponent.prototype.getWelcomeMessage = function () {
-        return this.helloService.getWelcomeMessage();
+        return "foo";
+        //return this.helloService.getWelcomeMessage();
     };
     return HelloComponent;
 }());
-HelloComponent.$inject = ['HelloService'];
+HelloComponent.$inject = ['Foo'];
 HelloComponent = __decorate([
     core_1.Component({
         selector: 'hello',
-        providers: [hello_service_1.HelloService],
+        providers: [hello_service_1.HelloService, foo_service_1.Foo],
         template: "<h1>{{getWelcomeMessage()}}</h1>"
     }),
-    __metadata("design:paramtypes", [hello_service_1.HelloService])
+    __metadata("design:paramtypes", [foo_service_1.Foo])
 ], HelloComponent);
 exports.HelloComponent = HelloComponent;
 ;
